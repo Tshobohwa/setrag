@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import airtelMoney from "../../images/airtel-money.png";
 import mastercard from "../../images/mastercard.png";
 import moovMoney from "../../images/moov-money.png";
 import visa from "../../images/visa.png";
+import DataContext from "../../data/dataContext";
 
 const NewTicket = ({ close }) => {
   const [payementMethod, setPayementMethod] = useState("mastercard");
+  const [cathegory, setCathegory] = useState("economic");
+  const { destinations } = useContext(DataContext);
+  const [destination, setDestination] = useState(destinations[0]);
   return (
     <div className="h-[100vh] w-[100vw] bg-blue-950/50 flex items-center justify-center z-50 fixed top-0 left-0 bottom-0 right-0">
       <div className="w-[560px] bg-white p-4 flex flex-col justify-between gap-4">
@@ -30,14 +34,21 @@ const NewTicket = ({ close }) => {
           <div className="w-full flex gap-[4%]">
             <div className="w-[48%] flex flex-col gap-2">
               <p>Destination</p>
-              <select className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4">
-                <option value="Libreville">Libreville</option>
-                <option value="Franceville">Franceville</option>
+              <select
+                className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
+                onChange={(e) => setDestination(e.target.value)}
+              >
+                {destinations.map((destination) => (
+                  <option value={destination}>{destination.cityName}</option>
+                ))}
               </select>
             </div>
             <div className="w-[48%] flex flex-col gap-2">
               <p>Cathegory</p>
-              <select className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4">
+              <select
+                className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
+                onChange={(e) => setCathegory(e.target.value)}
+              >
                 <option value="economic">economic</option>
                 <option value="vip">VIP</option>
               </select>
@@ -47,7 +58,10 @@ const NewTicket = ({ close }) => {
 
         <div className="w-full">
           <p>Price:</p>
-          <p className="font-semibold text-2xl text-blue-950">5000 FCFA</p>
+          <p className="font-semibold text-2xl text-blue-950">
+            {cathegory === "economic" ? destination.economic : destination.vip}{" "}
+            FCFA
+          </p>
         </div>
 
         <p>Payement method:</p>
