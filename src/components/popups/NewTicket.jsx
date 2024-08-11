@@ -26,6 +26,7 @@ const NewTicket = ({ close }) => {
       price: destination[cathegory],
     };
     addTicket(ticket);
+    close();
   };
   return (
     <div className="h-[100vh] w-[100vw] bg-blue-950/50 flex items-center justify-center z-50 fixed top-0 left-0 bottom-0 right-0">
