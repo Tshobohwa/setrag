@@ -11,6 +11,12 @@ const Tickets = () => {
             New Ticket
           </button>
         </header>
+        <section className="w-full flex flex-col gap-4 py-4">
+          <div className="w-full h-[300px] flex">
+            <div className="h-full bg-blue-950 w-[80px]"></div>
+            <div className="w-full  border-dashed border-2 h-[300px] border-l-0 border-blue-950"></div>
+          </div>
+        </section>
       </div>
     </SideBar>
   );
