@@ -1,9 +1,11 @@
 import React from "react";
 import SideBar from "../components/navigation/SideBar";
+import NewDestination from "../components/popups/NewDestination";
 
 const Destinations = () => {
   return (
     <SideBar>
+      <NewDestination />
       <div className="w-full max-w-[900px]">
         <header className="w-full justify-between flex">
           <h1 className="text-blue-950 font-semibold text-3xl">Destinations</h1>
