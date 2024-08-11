@@ -20,22 +20,24 @@ const NewTicket = ({ close }) => {
             name=""
             id=""
             className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
-            placeholder="city name"
+            placeholder="client name"
           />
-          <input
-            type="text"
-            name=""
-            id=""
-            className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
-            placeholder="Price economic"
-          />
-          <input
-            type="text"
-            name=""
-            id=""
-            className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
-            placeholder="Price VIP"
-          />
+          <div className="w-full flex gap-[4%]">
+            <div className="w-[48%] flex flex-col gap-2">
+              <p>Destination</p>
+              <select className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4">
+                <option value="Libreville">Libreville</option>
+                <option value="Franceville">Franceville</option>
+              </select>
+            </div>
+            <div className="w-[48%] flex flex-col gap-2">
+              <p>Cathegory</p>
+              <select className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4">
+                <option value="economic">economic</option>
+                <option value="vip">VIP</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <button className="w-full h-[3rem] bg-blue-950 text-white font-semibold">
