@@ -11,6 +11,22 @@ const NewTicket = ({ close }) => {
   const [cathegory, setCathegory] = useState("economic");
   const { destinations } = useContext(DataContext);
   const [destination, setDestination] = useState(destinations[0]);
+  const [name, setName] = useState("");
+
+  const { addTicket } = useContext(DataContext);
+
+  const submitHandler = () => {
+    if (!name) return;
+    const ticket = {
+      cathegory,
+      destination: destination.cityName,
+      payementMethod,
+      name,
+      date: new Date(),
+      price: destination[cathegory],
+    };
+    addTicket(ticket);
+  };
   return (
     <div className="h-[100vh] w-[100vw] bg-blue-950/50 flex items-center justify-center z-50 fixed top-0 left-0 bottom-0 right-0">
       <div className="w-[560px] bg-white p-4 flex flex-col justify-between gap-4">
@@ -30,6 +46,7 @@ const NewTicket = ({ close }) => {
             id=""
             className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
             placeholder="client name"
+            onChange={(e) => setName(e.target.value)}
           />
           <div className="w-full flex gap-[4%]">
             <div className="w-[48%] flex flex-col gap-2">
@@ -116,7 +133,10 @@ const NewTicket = ({ close }) => {
           </button>
         </div>
 
-        <button className="w-full h-[3rem] bg-blue-950 text-white font-semibold">
+        <button
+          className="w-full h-[3rem] bg-blue-950 text-white font-semibold"
+          onClick={submitHandler}
+        >
           confirm
         </button>
       </div>

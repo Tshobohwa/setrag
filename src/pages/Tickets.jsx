@@ -22,8 +22,14 @@ const Tickets = () => {
         <section className="w-full flex flex-col gap-4 py-4">
           {tickets.map((ticket) => (
             <div className="w-full h-[200px] flex">
-              <div className="h-full bg-blue-950 w-[80px]">
-                <p className="text-4xl font-bold">{ticket.cathegory}</p>
+              <div
+                className={`h-full w-[80px] ${
+                  ticket.cathegory === "vip" ? "bg-yellow-500" : " bg-blue-950"
+                }`}
+              >
+                <p className="text-4xl font-bold writing-mode-vertical p-3 text-white">
+                  {ticket.cathegory}
+                </p>
               </div>
               <div className="w-full  border-dashed border-2 h-[200px] border-l-0 border-blue-950 px-4 py-6 flex flex-col justify-between">
                 <div className="w-full flex justify-between">
