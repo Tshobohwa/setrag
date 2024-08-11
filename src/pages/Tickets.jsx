@@ -14,7 +14,24 @@ const Tickets = () => {
         <section className="w-full flex flex-col gap-4 py-4">
           <div className="w-full h-[300px] flex">
             <div className="h-full bg-blue-950 w-[80px]"></div>
-            <div className="w-full  border-dashed border-2 h-[300px] border-l-0 border-blue-950"></div>
+            <div className="w-full  border-dashed border-2 h-[300px] border-l-0 border-blue-950 px-4 py-6 flex flex-col justify-between">
+              <div className="w-full flex justify-between">
+                <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
+                  Name: John Doe
+                </p>
+                <p className="h-[3rem] px-6 rounded-md flex items-center w-fit font-semibold text-lg">
+                  Date: 13 Mai 2023
+                </p>
+              </div>
+              <div className="w-full flex justify-between">
+                <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
+                  Destination: Libreville
+                </p>
+                <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
+                  Price:5000 FCFA
+                </p>
+              </div>
+            </div>
           </div>
         </section>
       </div>
