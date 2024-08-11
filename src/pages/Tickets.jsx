@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SideBar from "../components/navigation/SideBar";
 import NewTicket from "../components/popups/NewTicket";
+import DataContext from "../data/dataContext";
 
 const Tickets = () => {
   const [addingTicket, setAddingTicket] = useState(false);
+  const { tickets } = useContext(DataContext);
   return (
     <SideBar>
       {addingTicket && <NewTicket close={() => setAddingTicket(false)} />}
@@ -18,27 +20,31 @@ const Tickets = () => {
           </button>
         </header>
         <section className="w-full flex flex-col gap-4 py-4">
-          <div className="w-full h-[200px] flex">
-            <div className="h-full bg-blue-950 w-[80px]"></div>
-            <div className="w-full  border-dashed border-2 h-[200px] border-l-0 border-blue-950 px-4 py-6 flex flex-col justify-between">
-              <div className="w-full flex justify-between">
-                <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
-                  Name: John Doe
-                </p>
-                <p className="h-[3rem] px-6 rounded-md flex items-center w-fit font-semibold text-lg">
-                  Date: 13 Mai 2023
-                </p>
+          {tickets.map((ticket) => (
+            <div className="w-full h-[200px] flex">
+              <div className="h-full bg-blue-950 w-[80px]">
+                <p className="text-4xl font-bold">{ticket.cathegory}</p>
               </div>
-              <div className="w-full flex justify-between">
-                <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
-                  Destination: Libreville
-                </p>
-                <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
-                  Price:5000 FCFA
-                </p>
+              <div className="w-full  border-dashed border-2 h-[200px] border-l-0 border-blue-950 px-4 py-6 flex flex-col justify-between">
+                <div className="w-full flex justify-between">
+                  <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
+                    Name: {ticket.name}
+                  </p>
+                  <p className="h-[3rem] px-6 rounded-md flex items-center w-fit font-semibold text-lg">
+                    Date: {new Date(ticket.date).toLocaleString()}
+                  </p>
+                </div>
+                <div className="w-full flex justify-between">
+                  <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
+                    Destination: {ticket.destination}
+                  </p>
+                  <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
+                    Price: {ticket.price} FCFA
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </section>
       </div>
     </SideBar>
