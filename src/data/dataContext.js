@@ -3,8 +3,12 @@ import { createContext, useState } from "react";
 const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  const [tickets, setTickets] = useState();
-  const [destinations, setDestinations] = useState();
+  const [tickets, setTickets] = useState(
+    JSON.parse(localStorage.getItem("tickets")) || []
+  );
+  const [destinations, setDestinations] = useState(
+    JSON.parse(localStorage.getItem("destinations")) || []
+  );
   const addTicket = (ticket) => {
     setTickets([...tickets, ticket]);
     localStorage.setItem("tickets", JSON.stringify([...tickets, ticket]));
