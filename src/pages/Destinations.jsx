@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SideBar from "../components/navigation/SideBar";
 import NewDestination from "../components/popups/NewDestination";
+import DataContext from "../data/dataContext";
 
 const Destinations = () => {
   const [addingDestination, setAddingDestination] = useState(false);
+
+  const { destinations } = useContext(DataContext);
 
   return (
     <SideBar>
@@ -30,16 +33,19 @@ const Destinations = () => {
               </tr>
             </thead>
             <tbody className="w-full">
-              <tr className="h-[3rem] border border-blue-950">
-                <td className=" pl-6 border border-blue-950">Libreville</td>
-                <td className=" pl-6 border border-blue-950">5000Fr</td>
-                <td className=" pl-6 border border-blue-950">5000Fr</td>
-              </tr>
-              <tr className="h-[3rem] pl-6 border-blue-950">
-                <td className=" pl-6 border border-blue-950">Libreville</td>
-                <td className=" pl-6 border border-blue-950">5000Fr</td>
-                <td className=" pl-6 border border-blue-950">5000Fr</td>
-              </tr>
+              {destinations.map((destination) => (
+                <tr className="h-[3rem] pl-6 border-blue-950">
+                  <td className=" pl-6 border border-blue-950">
+                    {destination.cityName}
+                  </td>
+                  <td className=" pl-6 border border-blue-950">
+                    {destination.vip}
+                  </td>
+                  <td className=" pl-6 border border-blue-950">
+                    {destination.economic}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </section>
