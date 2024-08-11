@@ -7,7 +7,10 @@ const NewDestination = ({ close }) => {
       <div className="w-[360px] h-[400px] bg-white p-4 flex flex-col justify-between gap-4">
         <div className="w-full flex justify-between items-center">
           <p className="font-semibold text-blue-950">New Destination</p>
-          <button className="flex items-center justify-center text-blue-950">
+          <button
+            className="flex items-center justify-center text-blue-950"
+            onClick={close}
+          >
             <CgClose size={24} />
           </button>
         </div>

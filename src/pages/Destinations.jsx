@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import SideBar from "../components/navigation/SideBar";
 import NewDestination from "../components/popups/NewDestination";
 
 const Destinations = () => {
+  const [addingDestination, setAddingDestination] = useState(false);
+
   return (
     <SideBar>
-      <NewDestination />
+      {addingDestination && (
+        <NewDestination close={() => setAddingDestination(false)} />
+      )}
       <div className="w-full max-w-[900px]">
         <header className="w-full justify-between flex">
           <h1 className="text-blue-950 font-semibold text-3xl">Destinations</h1>
-          <button className="h-[2.5rem] bg-blue-950 flex items-center justify-center rounded-lg font-semibold text-white px-6">
+          <button
+            className="h-[2.5rem] bg-blue-950 flex items-center justify-center rounded-lg font-semibold text-white px-6"
+            onClick={() => setAddingDestination(true)}
+          >
             Add destination
           </button>
         </header>
