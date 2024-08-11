@@ -48,6 +48,9 @@ const Tickets = () => {
                     Price: {ticket.price} FCFA
                   </p>
                 </div>
+                <p className="bg-yellow-400 w-fit px-2 rounded-md">
+                  payed with {ticket.payementMethod}
+                </p>
               </div>
             </div>
           ))}
