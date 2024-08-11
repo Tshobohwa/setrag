@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import SideBar from "../components/navigation/SideBar";
+import NewTicket from "../components/popups/NewTicket";
 
 const Tickets = () => {
+  const [addingTicket, setAddingTicket] = useState(false);
   return (
     <SideBar>
+      {addingTicket && <NewTicket close={() => setAddingTicket(false)} />}
       <div className="w-full max-w-[900px]">
         <header className="w-full justify-between flex">
           <h1 className="text-blue-950 font-semibold text-3xl">Tickets</h1>
-          <button className="h-[2.5rem] bg-blue-950 flex items-center justify-center rounded-lg font-semibold text-white px-6">
+          <button
+            className="h-[2.5rem] bg-blue-950 flex items-center justify-center rounded-lg font-semibold text-white px-6"
+            onClick={() => setAddingTicket(true)}
+          >
             New Ticket
           </button>
         </header>
