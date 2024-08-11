@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { CgClose } from "react-icons/cg";
+import airtelMoney from "../../images/airtel-money.png";
+import mastercard from "../../images/mastercard.png";
+import moovMoney from "../../images/moov-money.png";
+import visa from "../../images/visa.png";
 
 const NewTicket = ({ close }) => {
+  const [payementMethod, setPayementMethod] = useState("mastercard");
   return (
     <div className="h-[100vh] w-[100vw] bg-blue-950/50 flex items-center justify-center z-50 fixed top-0 left-0 bottom-0 right-0">
-      <div className="w-[560px] h-[400px] bg-white p-4 flex flex-col justify-between gap-4">
+      <div className="w-[560px] bg-white p-4 flex flex-col justify-between gap-4">
         <div className="w-full flex justify-between items-center">
           <p className="font-semibold text-blue-950">New Ticket</p>
           <button
-            className="flex items-center justify-center text-blue-950"
+            className="flex itemsa-center justify-center text-blue-950"
             onClick={close}
           >
             <CgClose size={24} />
@@ -38,6 +43,55 @@ const NewTicket = ({ close }) => {
               </select>
             </div>
           </div>
+        </div>
+
+        <div className="w-full">
+          <p>Price:</p>
+          <p className="font-semibold text-2xl text-blue-950">5000 FCFA</p>
+        </div>
+
+        <p>Payement method:</p>
+        <div className=" flex gap-4 w-full justify-center">
+          <button
+            className={`p-4 ${
+              payementMethod === "mastercard"
+                ? "border-2 border-blue-950"
+                : "border-blue-950/20 border"
+            }`}
+            onClick={() => setPayementMethod("mastercard")}
+          >
+            <img src={mastercard} className="h-[48px]" />
+          </button>
+          <button
+            className={`p-4 ${
+              payementMethod === "visa"
+                ? "border-2 border-blue-950"
+                : "border-blue-950/20 border"
+            }`}
+            onClick={() => setPayementMethod("visa")}
+          >
+            <img src={visa} className="h-[48px]" />
+          </button>
+          <button
+            className={`p-4 ${
+              payementMethod === "moov money"
+                ? "border-2 border-blue-950"
+                : "border-blue-950/20 border"
+            }`}
+            onClick={() => setPayementMethod("moov money")}
+          >
+            <img src={moovMoney} className="h-[48px]" />
+          </button>
+          <button
+            className={`p-4 ${
+              payementMethod === "airtel money"
+                ? "border-2 border-blue-950"
+                : "border-blue-950/20 border"
+            }`}
+            onClick={() => setPayementMethod("airtel money")}
+          >
+            <img src={airtelMoney} className="h-[64px]" />
+          </button>
         </div>
 
         <button className="w-full h-[3rem] bg-blue-950 text-white font-semibold">

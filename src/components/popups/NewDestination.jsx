@@ -17,24 +17,18 @@ const NewDestination = ({ close }) => {
         <div className="w-full flex flex-col gap-4">
           <input
             type="text"
-            name=""
-            id=""
             className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
             placeholder="city name"
           />
           <input
-            type="text"
-            name=""
-            id=""
+            type="number"
             className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
-            placeholder="Price economic"
+            placeholder="Price economic (FCFA)"
           />
           <input
-            type="text"
-            name=""
-            id=""
+            type="number"
             className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
-            placeholder="Price VIP"
+            placeholder="Price VIP (FCFA)"
           />
         </div>
 
