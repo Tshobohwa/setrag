@@ -36,10 +36,18 @@ const NewTicket = ({ close }) => {
               <p>Destination</p>
               <select
                 className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
-                onChange={(e) => setDestination(e.target.value)}
+                onChange={(e) =>
+                  setDestination(
+                    destinations.find(
+                      (destination) => destination.cityName === e.target.value
+                    )
+                  )
+                }
               >
                 {destinations.map((destination) => (
-                  <option value={destination}>{destination.cityName}</option>
+                  <option value={destination.cityName}>
+                    {destination.cityName}
+                  </option>
                 ))}
               </select>
             </div>
