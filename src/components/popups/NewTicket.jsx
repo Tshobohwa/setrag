@@ -100,7 +100,7 @@ const NewTicket = ({ close }) => {
             }`}
             onClick={() => setPayementMethod("mastercard")}
           >
-            <img src={mastercard} className="h-[48px]" />
+            <img src={mastercard} className="h-[48px]" alt="mastercard" />
           </button>
           <button
             className={`p-4 ${
@@ -110,7 +110,7 @@ const NewTicket = ({ close }) => {
             }`}
             onClick={() => setPayementMethod("visa")}
           >
-            <img src={visa} className="h-[48px]" />
+            <img src={visa} className="h-[48px]" alt="visa" />
           </button>
           <button
             className={`p-4 ${
@@ -120,7 +120,7 @@ const NewTicket = ({ close }) => {
             }`}
             onClick={() => setPayementMethod("moov money")}
           >
-            <img src={moovMoney} className="h-[48px]" />
+            <img src={moovMoney} className="h-[48px]" alt="moov money" />
           </button>
           <button
             className={`p-4 ${
@@ -130,7 +130,7 @@ const NewTicket = ({ close }) => {
             }`}
             onClick={() => setPayementMethod("airtel money")}
           >
-            <img src={airtelMoney} className="h-[64px]" />
+            <img src={airtelMoney} className="h-[64px]" alt="airtel money" />
           </button>
         </div>
 
