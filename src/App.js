@@ -10,9 +10,9 @@ export default function App() {
     <DataProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/tickets" element={<Tickets />} />
+          {/* <Route path="/" element={<Dashboard />} /> */}
+          {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/" element={<Tickets />} />
           <Route path="/Destinations" element={<Destinations />} />
         </Routes>
       </BrowserRouter>

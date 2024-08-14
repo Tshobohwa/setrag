@@ -9,11 +9,9 @@ const SideBar = ({ children }) => {
         <img src={setragLogo} alt="logo" className="w-[200px] mx-4" />
         <ul className="flex flex-col gap-4">
           <li>
-            <SideBarLink to={"/"} name={"Dashboard"} />
+            <SideBarLink to={"/"} name={"Tickets"} />
           </li>
-          <li>
-            <SideBarLink to={"/tickets"} name={"Tickets"} />
-          </li>
+          <li>{/* <SideBarLink to={"/tickets"} name={"Tickets"} /> */}</li>
           <li>
             <SideBarLink to={"/destinations"} name={"Destinations"} />
           </li>
