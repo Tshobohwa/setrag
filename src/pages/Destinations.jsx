@@ -27,9 +27,11 @@ const Destinations = () => {
           <table className="w-full">
             <thead className=" text-white">
               <tr className="bg-blue-950 h-[3rem]">
-                <th className="w-[60%] border border-white">Destination</th>
-                <th className="w-[20%] border border-white">Price VIP</th>
-                <th className="w-[20%] border border-white">Price economic</th>
+                <th className="w-[40%] border border-white">Destination</th>
+                <th className="w-[15%] border border-white">Price VIP</th>
+                <th className="w-[15%] border border-white">Price economic</th>
+                <th className="w-[15%] border border-white">Departure one</th>
+                <th className="w-[15%] border border-white">Departure two</th>
               </tr>
             </thead>
             <tbody className="w-full">
@@ -39,10 +41,16 @@ const Destinations = () => {
                     {destination.cityName}
                   </td>
                   <td className=" pl-6 border border-blue-950">
-                    {destination.vip}
+                    {destination.vip} FCFA
                   </td>
                   <td className=" pl-6 border border-blue-950">
-                    {destination.economic}
+                    {destination.economic} FCFA
+                  </td>
+                  <td className=" pl-6 border border-blue-950">
+                    {destination.departureOne}
+                  </td>
+                  <td className=" pl-6 border border-blue-950">
+                    {destination.departureTwo}
                   </td>
                 </tr>
               ))}

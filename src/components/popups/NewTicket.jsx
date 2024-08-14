@@ -12,11 +12,13 @@ const NewTicket = ({ close }) => {
   const { destinations } = useContext(DataContext);
   const [destination, setDestination] = useState(destinations[0]);
   const [name, setName] = useState("");
+  const [departure, setDeparture] = useState("");
+  const [seatNumber, setSeatNumber] = useState(null);
 
   const { addTicket } = useContext(DataContext);
 
   const submitHandler = () => {
-    if (!name) return;
+    if (!name || !seatNumber || !departure) return;
     const ticket = {
       cathegory,
       destination: destination.cityName,
@@ -24,6 +26,8 @@ const NewTicket = ({ close }) => {
       name,
       date: new Date(),
       price: destination[cathegory],
+      seatNumber,
+      departure,
     };
     addTicket(ticket);
     close();
@@ -78,6 +82,29 @@ const NewTicket = ({ close }) => {
                 <option value="economic">economic</option>
                 <option value="vip">VIP</option>
               </select>
+            </div>
+          </div>
+          <div className="w-full flex gap-[4%]">
+            <div className="w-[48%] flex flex-col gap-2">
+              <p>Destination</p>
+              <select
+                className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
+                onChange={(e) => setDeparture(e.target.value)}
+              >
+                <option value={destination.departureOne}>
+                  {destination.departureOne}
+                </option>
+                <option value={destination.departureTwo}>
+                  {destination.departureTwo}
+                </option>
+              </select>
+            </div>
+            <div className="w-[48%] flex flex-col gap-2">
+              <p>Seat Number</p>
+              <input
+                className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
+                onChange={(e) => setSeatNumber(e.target.value)}
+              />
             </div>
           </div>
         </div>

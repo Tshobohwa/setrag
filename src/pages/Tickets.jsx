@@ -21,7 +21,7 @@ const Tickets = () => {
         </header>
         <section className="w-full flex flex-col gap-4 py-4">
           {tickets.map((ticket) => (
-            <div className="w-full h-[200px] flex">
+            <div className="w-full h-[240px] flex">
               <div
                 className={`h-full w-[80px] ${
                   ticket.cathegory === "vip" ? "bg-yellow-500" : " bg-blue-950"
@@ -31,7 +31,7 @@ const Tickets = () => {
                   {ticket.cathegory}
                 </p>
               </div>
-              <div className="w-full  border-dashed border-2 h-[200px] border-l-0 border-blue-950 px-4 py-6 flex flex-col justify-between">
+              <div className="w-full  border-dashed border-2 h-[240px] border-l-0 border-blue-950 px-4 py-6 flex flex-col justify-between">
                 <div className="w-full flex justify-between">
                   <p className="h-[3rem] px-6 rounded-md bg-blue-950/20 flex items-center w-fit font-semibold text-lg">
                     Name: {ticket.name}
@@ -48,7 +48,15 @@ const Tickets = () => {
                     Price: {ticket.price} FCFA
                   </p>
                 </div>
-                <p className="bg-yellow-400 w-fit px-2 rounded-md">
+                <div className="w-full flex justify-between">
+                  <p className=" text-blue-950 w-fit px-2 rounded-md p-2 bg-red-500 font-semibold">
+                    departure {ticket.departure}
+                  </p>
+                  <p className=" text-blue-950 w-fit px-2 rounded-md p-2 bg-green-500 font-semibold">
+                    seat number: {ticket.seatNumber}
+                  </p>
+                </div>
+                <p className="text-yellow-600 text-end w-fit px-2 rounded-md">
                   payed with {ticket.payementMethod}
                 </p>
               </div>

@@ -3,19 +3,40 @@ import { CgClose } from "react-icons/cg";
 import DataContext from "../../data/dataContext";
 
 const NewDestination = ({ close }) => {
+  const weekDays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
   const [cityName, setCityName] = useState("");
   const [vip, setVip] = useState(0);
   const [economic, setEconomic] = useState(0);
 
+  const [departureOne, setDepartureOne] = useState(weekDays[0]);
+  const [departureTwo, setDepartureTwo] = useState(weekDays[1]);
+
   const { addDestination } = useContext(DataContext);
 
   const confirmHandler = () => {
-    if (cityName === "" || vip === 0 || economic === 0 || !economic || !vip)
+    if (
+      cityName === "" ||
+      vip === 0 ||
+      economic === 0 ||
+      !economic ||
+      !vip ||
+      departureOne === departureTwo
+    )
       return;
     const destination = {
       cityName,
       vip,
       economic,
+      departureOne,
+      departureTwo,
     };
     addDestination(destination);
     close();
@@ -56,7 +77,32 @@ const NewDestination = ({ close }) => {
             onChange={(e) => setVip(+e.target.value)}
           />
         </div>
-
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <p>Departure one</p>
+            <select
+              className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
+              onChange={(e) => setDepartureOne(e.target.value)}
+              value={departureOne}
+            >
+              {weekDays.map((weekDay) => (
+                <option value={weekDay}>{weekDay}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <p>Departure two</p>
+            <select
+              className="w-full border-2 border-blue-950 h-[3rem] placeholder:text-blue-950/50 pl-4"
+              onChange={(e) => setDepartureTwo(e.target.value)}
+              value={departureTwo}
+            >
+              {weekDays.map((weekDay) => (
+                <option value={weekDay}>{weekDay}</option>
+              ))}
+            </select>
+          </div>
+        </div>
         <button
           className="w-full h-[3rem] bg-blue-950 text-white font-semibold"
           onClick={confirmHandler}
