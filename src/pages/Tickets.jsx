@@ -3,11 +3,11 @@ import SideBar from "../components/navigation/SideBar";
 import NewTicket from "../components/popups/NewTicket";
 import DataContext from "../data/dataContext";
 
-const Tickets = () => {
+const Tickets = ({ onLogout }) => {
   const [addingTicket, setAddingTicket] = useState(false);
   const { tickets } = useContext(DataContext);
   return (
-    <SideBar>
+    <SideBar onLogout={onLogout}>
       {addingTicket && <NewTicket close={() => setAddingTicket(false)} />}
       <div className="w-full max-w-[900px]">
         <header className="w-full justify-between flex">

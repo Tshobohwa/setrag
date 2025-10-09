@@ -2,7 +2,7 @@ import React from "react";
 import setragLogo from "../../images/setrag-logo.png";
 import SideBarLink from "./SideBarLink";
 
-const SideBar = ({ children }) => {
+const SideBar = ({ children, onLogout }) => {
   return (
     <main className="w-[100vw] h-[100vh] py-4 pr-4 pl-[260px]">
       <nav className=" w-[240px] border-r border-r-blue-950 flex flex-col gap-4 items-center fixed top-0 left-0 bottom-0">
@@ -16,6 +16,14 @@ const SideBar = ({ children }) => {
             <SideBarLink to={"/destinations"} name={"Destinations"} />
           </li>
         </ul>
+        {onLogout && (
+          <button
+            onClick={onLogout}
+            className="mt-auto mb-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+          >
+            Logout
+          </button>
+        )}
       </nav>
       {children}
     </main>

@@ -3,13 +3,13 @@ import SideBar from "../components/navigation/SideBar";
 import NewDestination from "../components/popups/NewDestination";
 import DataContext from "../data/dataContext";
 
-const Destinations = () => {
+const Destinations = ({ onLogout }) => {
   const [addingDestination, setAddingDestination] = useState(false);
 
   const { destinations } = useContext(DataContext);
 
   return (
-    <SideBar>
+    <SideBar onLogout={onLogout}>
       {addingDestination && (
         <NewDestination close={() => setAddingDestination(false)} />
       )}
